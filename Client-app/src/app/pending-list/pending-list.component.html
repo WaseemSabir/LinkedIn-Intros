@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="h1 text-center py-3">Pending Request</div>
+    <p class="text-center">You will able to view the results of your connections request upon completion</p>
+    <ul nz-list [nzDataSource]="pendingList" nzBordered nzSize="large">
+        <nz-list-header style="display: flex;justify-content: space-between;">
+            <div>Target Url</div>
+            <button mat-button color="primary" class="" [ngClass]="{'spinner-border':refreshStatus,'btn-danger':reErr}" (click)="refresh()"><mat-icon>refresh</mat-icon></button>
+        </nz-list-header>
+        <li nz-list-item *ngFor="let item of pendingList" nzNoFlex>
+            <ul nz-list-item-actions>
+                <nz-list-item-action>
+                    <button mat-button color="primary" (click)="viewConnection(item.id)" *ngIf="item.status==='Completed'">View</button>
+                    <p *ngIf="item.status!=='Completed'">{{item.status}}</p>
+                </nz-list-item-action>
+            </ul>
+            <a [href]="item.url" target="_blank">{{ item.url }}</a>
+        </li>
+    </ul>
+</div>

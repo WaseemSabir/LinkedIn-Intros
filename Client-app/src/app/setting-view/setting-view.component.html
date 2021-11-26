@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="h1 text-center py-3">Settings</div>
+    <p class="text-center">Here you can set minimum values for a connection to be considered an <br>overlap for all returned results on your search</p>
+    <div class="pb-5 pt-3 padding-slide">
+        <div class="py-2">
+            <p>Minimum Overlap for Work (In months)</p>
+            <nz-row>
+                <nz-col nzSpan="20">
+                  <nz-slider [nzMin]="0" [nzMax]="60" [nzStep]="1" [(ngModel)]="minOverlapWork" (ngModelChange)="changed=true"></nz-slider>
+                </nz-col>
+                <nz-col nzSpan="4">
+                  <nz-input-number [nzMin]="0" [nzMax]="60" [nzStep]="1" [(ngModel)]="minOverlapWork"
+                  (ngModelChange)="changed=true"></nz-input-number>
+                </nz-col>
+            </nz-row>
+        </div>
+
+        <div class="py-2">
+            <p>Minimum Overlap for Education (In months)</p>
+            <nz-row>
+                <nz-col nzSpan="20">
+                  <nz-slider [nzMin]="0" [nzMax]="50" [nzStep]="1" [(ngModel)]="minOverlapUni" (ngModelChange)="changed=true"></nz-slider>
+                </nz-col>
+                <nz-col nzSpan="4">
+                  <nz-input-number [nzMin]="0" [nzMax]="50" [nzStep]="1" [(ngModel)]="minOverlapUni"
+                  (ngModelChange)="changed=true"></nz-input-number>
+                </nz-col>
+            </nz-row>
+        </div>
+
+        <div class="py-2">
+          <p>Avg Time Delay while Scraping (seconds)</p>
+          <nz-row>
+              <nz-col nzSpan="20">
+                <nz-slider [nzMin]="0" [nzMax]="50" [nzStep]="1" [(ngModel)]="delay" (ngModelChange)="changed=true"></nz-slider>
+              </nz-col>
+              <nz-col nzSpan="4">
+                <nz-input-number [nzMin]="0" [nzMax]="50" [nzStep]="1" [(ngModel)]="delay"
+                (ngModelChange)="changed=true"></nz-input-number>
+              </nz-col>
+          </nz-row>
+        </div>
+
+        <div class="text-center py-2" *ngIf="changed">
+            <button mat-button color="primary" (click)="saveNewSet()" >Save</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div [formGroup]="login" class="mx-5 vertical-center">
+    <h1 class="">Welcome back,</h1>
+    <h1 class="">Please Login to continue</h1>
+    <mat-form-field class="w-100">
+        <input matInput placeholder="Username" formControlName="username" (change)="userChanged($event)" required /> 
+    </mat-form-field>
+    <br>
+    <mat-form-field class="w-100">
+        <input matInput type="password" placeholder="Password" formControlName="password" (change)="passChanged($event)" required />
+    </mat-form-field>
+    <mat-error *ngIf="error">
+        {{errorStr}}
+    </mat-error>
+    <button mat-raised-button color="primary" (click)="submit()">Login</button>
+</div>
+<ngx-spinner [fullScreen]="true" type="ball-fussion" size="medium"></ngx-spinner>

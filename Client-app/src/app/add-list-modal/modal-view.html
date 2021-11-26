@@ -1,0 +1,26 @@
+<nz-modal
+      [(nzVisible)]="isVisible"
+      [nzContent]="modalContent"
+      [nzFooter]="modalFooter"
+      (nzOnCancel)="handleCancel()">
+
+    <ng-template #modalContent>
+        <div class="px-3">
+            <h2 class="m-0">What should we call your list?</h2>
+            <p class="text-muted m-0">This is to help your team find the list, it won’t be shown externally.</p>
+            <div class="row mt-4 mb-2">
+                <h3 class="col-9" style="color: #4C596B;;">List Name</h3>
+                <span class="text-right text-muted col-3">{{newListName.length}} Characters</span>
+            </div>
+            <input type="text" class="form-control" [(ngModel)]="newListName" placeholder="New List Name">
+            <mat-error *ngIf="error">
+                {{errorStr}}
+            </mat-error>          
+        </div>
+    </ng-template>
+
+    <ng-template #modalFooter>
+        <button nz-button nzType="primary" (click)="handleOk()">Create</button>
+        <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+    </ng-template>
+</nz-modal>

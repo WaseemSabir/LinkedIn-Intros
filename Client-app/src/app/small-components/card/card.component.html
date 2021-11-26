@@ -1,0 +1,32 @@
+<mat-card class="card-container" *ngIf="!select">
+    <mat-card-header>
+      <img mat-card-avatar class="img-fluid pill" [src]="data.image"/>
+      <mat-card-title class="vertical-center"><a target="_blank" [href]="data.url">{{data.name}}</a></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="vertical-center" *ngIf="overlapString.length;">
+        <span class="text-muted my-auto">Overlapped at: </span><span class="my-auto" [innerHtml]="overlapString"></span>
+      </div>
+      <div class="vertical-center" *ngIf="!overlapString.length;">
+        <p>No Overlapp Found</p>
+      </div>
+    </mat-card-content>
+    <mat-card-content>
+        <a [href]="data.url" target="_blank" class="vertical-center"></a>
+    </mat-card-content>
+</mat-card>
+
+<div *ngIf="select" class="row">
+  <div class="col-8">
+    <img class="ml-2" style="width: 100px;height: auto;" src={{data.image}} />
+    <span class="my-auto" style="padding-left: 15px;"><a target="_blank" [href]="data.url">{{data.name}}</a></span>
+  </div>
+  <div class="col-4">
+    <div class="my-auto" *ngIf="overlapString.length;">
+      <span class="text-muted my-auto">Overlapped at: </span><span class="my-auto" [innerHtml]="overlapString"></span>
+    </div>
+    <div class="vertical-center" *ngIf="!overlapString.length;">
+      <p>No Overlapp Found</p>
+    </div>
+  </div>
+</div>

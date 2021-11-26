@@ -1,0 +1,8 @@
+<button nz-button class="ml-auto" [nzType]="'primary'" nz-dropdown [nzDropdownMenu]="menu"><span>Add to List</span></button>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li nz-menu-item *ngFor="let list of allLists" (click)="addToExistingList(list.name)">{{list.name}}</li>
+      <li nz-menu-item (click)="showModal()" class="text-primary">+ Add a list</li>
+    </ul>
+</nz-dropdown-menu>
+<app-modal-view></app-modal-view>

@@ -1,0 +1,46 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+  </button>
+  LinkedIn Intros
+</mat-toolbar>
+
+<mat-sidenav-container class="scroll-hider">
+  <mat-sidenav class="mat-elevation-z8" mode="side" style="overflow-y: hidden;" opened #sidenav>
+    <section *ngIf="currRoute!=='Lists'">
+      <img class="avatar mat-elevation-z8" src={{getImage()}} />
+      <h4 class="name removeMrPad">{{getName()}}</h4>
+      <!-- <p class="designation removeMrPad" style="margin: 0;padding: 0;">{{getPos()}}</p> -->
+      <mat-divider></mat-divider>
+    </section>
+
+    <button mat-button class="menu-button" *ngFor="let list of menuList" (click)="btnClick(list.str)">
+        <mat-icon>{{list.icon}}</mat-icon>
+        <span>{{list.str}}</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" *ngFor="let list of menuList2" (click)="btnClick(list.str)">
+        <mat-icon>{{list.icon}}</mat-icon>
+        <span>{{list.str}}</span>
+    </button>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <app-login-form *ngIf="!logdIn && !register"></app-login-form>
+      <app-register-form *ngIf="!logdIn && register"></app-register-form>
+      <app-home-page *ngIf="logdIn && currRoute=='Home'"></app-home-page>
+      <app-home-page *ngIf="logdIn && currRoute=='ViewList'" [fullData]="data" ></app-home-page>
+      <app-list-view *ngIf="currRoute=='Lists' && logdIn"></app-list-view>
+      <app-setting-view *ngIf="currRoute=='Settings' && logdIn"></app-setting-view>
+      <app-pending-list *ngIf="currRoute=='Pending' && logdIn" ></app-pending-list>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

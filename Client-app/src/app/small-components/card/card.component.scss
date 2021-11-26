@@ -1,0 +1,40 @@
+.example-header-image {
+    background-size: cover;
+}
+
+.card-container {
+    /* needed styles below */
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 70px; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: auto;
+}
+
+mat-card {
+    width: 100%;
+}
+
+.vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);  
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}

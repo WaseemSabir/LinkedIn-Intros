@@ -1,0 +1,24 @@
+<div [formGroup]="register" class="mx-5 vertical-center">
+    <h1 class="">Please Enter your details to sign up.</h1>
+    <mat-form-field class="w-100">
+        <input matInput placeholder="Full Name" formControlName="fullName" (change)="nameChanged($event)" required /> 
+    </mat-form-field>
+    <br>
+    <mat-form-field class="w-100">
+        <input matInput placeholder="Profession" formControlName="position" (change)="posChanged($event)" required /> 
+    </mat-form-field>
+    <br>
+    <mat-form-field class="w-100">
+        <input matInput placeholder="Username" formControlName="username" (change)="userChanged($event)" required /> 
+    </mat-form-field>
+    <mat-form-field class="w-100">
+        <input matInput type="password" placeholder="Password" formControlName="password" (change)="passChanged($event)" required />
+    </mat-form-field>
+    <!-- <input type="file" placeholder="Profile Image" accept="image/*" class="form-control" formControlName="profileImage" (change)="imageChanged($event)"/> -->
+    <mat-error *ngIf="error">
+        {{errorStr}}
+    </mat-error>
+    <br>
+    <button mat-raised-button color="primary" (click)="submit()">Register</button>
+</div>
+<ngx-spinner [fullScreen]="true" type="ball-fussion" size="medium"></ngx-spinner>

@@ -1,0 +1,30 @@
+<div *ngIf="currClick=='Lists' || !currClick.length; else ListView">
+    <h1 class="text-center mt-5" style="font-weight: 500;">Click a list to view saved Connections</h1>
+    <p class="text-center mt-2 text-muted">Or you can create new lists.</p>
+    <div class="text-center">
+        <span>Or Go Back to </span>
+        <button nz-button [nzType]="'primary'" class="text-center my-2" [nzSize]="'default'" (click)="goBackHome()"><span>Home</span></button>
+    </div>
+</div>
+
+<ng-template #ListView>
+    <div class="p-5">
+        <h1 class="text-center" style="font-weight: 500;">{{currClick}} Connections</h1>
+        <div *ngIf="!currList.length;else listdown">
+            <p class="text-center mt-2 text-muted">Or you can create new lists.</p>
+            <div class="text-center">
+                <span>Or </span>
+                <button nz-button [nzType]="'default'" class="text-center my-2" [nzSize]="'default'" (click)="goBackHome()"><span>Search </span></button>
+                <span> And New Connections</span>
+            </div>
+        </div>
+        <ng-template #listdown>
+            <div *ngFor="let item of currList" >
+                <app-card-component [data]="item" [select]="false"></app-card-component>
+                <mat-divider></mat-divider>
+            </div>
+        </ng-template>
+    </div>
+</ng-template>
+
+<app-modal-view></app-modal-view>
