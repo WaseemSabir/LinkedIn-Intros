@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  APIEndpoint: '/'
+  APIEndpoint: 'https://linkedin-intros.onrender.com/'
 };

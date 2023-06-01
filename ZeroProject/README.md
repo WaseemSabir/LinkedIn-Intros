@@ -33,7 +33,3 @@ python3 manage.py runserver
 This will start the server on http://127.0.0.1:8000.
 It is recommended to use python virtual enviorment for installing and using the pip dependencies.
 The project has been tested on the linux machines
-
-### Warning
-
-Before making the repository public, the django key should be removed from file and accessed via enviorment variables.

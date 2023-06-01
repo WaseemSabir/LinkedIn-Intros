@@ -22,12 +22,12 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5a318u1ocsc4#*n8ii2bid#amsiehb$@3pbu5th&-nerli$7pk'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", True)
 
-ALLOWED_HOSTS = ['127.0.0.1','34.66.55.51']
+ALLOWED_HOSTS = ['127.0.0.1'] + [os.environ.get("ALLOWED_HOST", "linkedin-intros.onrender.com")]
 
 
 # Application definition
